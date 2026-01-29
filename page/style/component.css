@@ -1,0 +1,656 @@
+
+/* Button */
+.btn{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border: 5px;
+    padding: 8px 14px;
+    opacity: 1;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.btn--primary{
+    background-color: var(--color-primary-300);
+    color: var(--color-white-100);
+    border-radius: 5px;
+}
+
+.btn--primary:hover:not(:disabled){
+    background-color: var(--color-primary-600);
+}
+
+.btn--primary.active{
+    background-color: var(--color-primary-600);
+}
+
+.btn--primary:disabled{
+    background-color: var(--color-zinc-200);
+    color: var(--color-zinc-600);
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.btn--primary:disabled:hover{
+    background-color: var(--color-zinc-300);
+    transform: none;
+}
+
+.btn--primary.is-hidden{
+    display: none;
+}
+
+.btn--primary--outline{
+    border: 1px solid var(--color-primary-300);
+    border-radius: 5px;
+}
+
+.btn--primary--outline:hover{
+    background-color: var(--color-primary-300);
+}
+
+.dc-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.dc-icon img{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    object-fit: contain;
+}
+
+.select-nav{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Dropdown */
+.dropdowns-wrap, .buttons-wrap{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+/* 給下拉選單容器添加相對定位 */
+.dropdowns-wrap__item {
+    position: relative;
+}
+
+.dropdown__trigger{
+    border: 1px solid var(--color-primary-600);
+    background: var(--color-white-100);
+    border-radius: 5px;
+    color: var(--color-zinc-600);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 8px 12px;
+    min-width: 150px
+}
+
+.dropdown__options {
+    display: none;
+    position: absolute;
+    background: var(--color-white-100);
+    border: 1px solid var(--color-zinc-200);
+    width: 100%;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 10;
+    margin-top: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown__options li {
+    width: 100%;
+    padding: 8px 12px;
+    cursor: pointer;
+    box-sizing: border-box;
+}   
+
+.dropdown__options li:hover {
+    background: var(--color-zinc-200);
+}
+
+.dropdown__options.is-open {
+    display: block;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.dropdown__icon{
+    font-size: 20px;
+    transition: transform 0.3s ease;
+}
+
+/* icon 旋轉 */
+.dropdown__trigger:has(+ .dropdown__options.is-open) .dropdown__icon{
+    transform: rotate(180deg);
+}
+
+/* Chart */
+.chart-wrap{
+    position: relative;
+    height: 400px;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.chart-wrap > h3 {
+    color: var(--color-zinc-600);
+}
+
+/* Weekly Weather Table */
+.weekly-data-wrap > h3{
+    color: var(--color-zinc-600);
+    margin-bottom: 20px;
+}
+
+/* 表頭 */
+.weekly-data-table__header--wrap {
+    border: 1px solid var(--color-zinc-200);
+    box-shadow:  rgba(0, 0, 0, 0.09) 0px 3px 12px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.weekly-data-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.weekly-data-table__header th{
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: var(--font-weight-500);
+    color: var(--color-zinc-600);
+    background: var(--color-white-100);
+    border: none;
+}
+
+/* 設定每個欄位的固定寬度 */
+/* 日期 */
+.weekly-data-table th:nth-child(1),
+.weekly-data-table td:nth-child(1) {
+    width: 200px;
+    text-align: center;
+}
+
+ /* 時間 */
+.weekly-data-table th:nth-child(2),
+.weekly-data-table td:nth-child(2) {
+    width: 200px;
+    text-align: center;
+}
+
+/* 天氣 / 降雨 / 溫度 / 濕度 → 均分 */
+.weekly-data-table th:nth-child(3),
+.weekly-data-table td:nth-child(3),
+.weekly-data-table th:nth-child(4),
+.weekly-data-table td:nth-child(4),
+.weekly-data-table th:nth-child(5),
+.weekly-data-table td:nth-child(5),
+.weekly-data-table th:nth-child(6),
+.weekly-data-table td:nth-child(6) {
+    width: calc((100% - 400px) / 4);
+    text-align: center;
+}
+
+/* 每個日期區塊的容器 */
+.date-group {
+    margin-bottom: 20px;
+}
+
+/* 空狀態提示 */
+.date-group--empty, .empty-content{
+    border: 1px solid var(--color-zinc-200);
+    box-shadow:  rgba(0, 0, 0, 0.09) 0px 3px 12px;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    color: var(--color-zinc-600);
+}
+
+.date-group .weekly-data-table {
+    border: 1px solid var(--color-zinc-200); 
+    box-shadow:  rgba(0, 0, 0, 0.09) 0px 3px 12px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* 最後一個不要多一塊空白 */
+.date-group .weekly-data-table:last-child {
+    margin-bottom: 0;
+}
+
+/* 行內樣式 */
+.date-row td {
+    padding: 16px;
+    border: none;
+    color: var(--color-zinc-600);
+}
+
+/* 日夜之間的分隔線 */
+.date-row:first-child td {
+    border-bottom: 1px solid var(--color-zinc-200); 
+}
+
+/* 日期欄位 */
+.date-cell {
+    vertical-align: middle;
+    font-weight: var(--font-weight-500);
+    color: var(--color-zinc-600);
+}
+
+.date-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.date {
+    font-size: 18px;
+    color: var(--color-zinc-600);
+}
+
+.weekday {
+    font-size: 14px;
+    color: var(--color-zinc-600);
+}
+
+.time-cell {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.time-cell .material-symbols-outlined {
+    font-size: 24px;
+    vertical-align: middle;
+    color: var(--color-zinc-600);
+}
+
+/* Rainfall Table */
+/* 表頭 */
+.rainfall-data-table__header--wrap {
+    border: 1px solid var(--color-zinc-200);
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+/* 表格基本設定 */
+.rainfall-data-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* 固定佈局,讓欄位均分 */
+}
+
+/* 表頭樣式 */
+.rainfall-data-table__header th {
+    padding: 12px 16px;
+    text-align: center;
+    font-weight: var(--font-weight-500);
+    color: var(--color-zinc-600);
+    background: var(--color-white-100);
+    border: none;
+}
+
+/* 資料區塊容器 */
+.area-group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* 資料行樣式 */
+.data-row{
+    border: 1px solid var(--color-zinc-200); 
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+    border-radius: 5px;
+}
+
+.data-row td {
+    padding: 16px;
+    text-align: center;
+    border: none;
+    vertical-align: middle;
+    color: var(--color-zinc-600);
+}
+
+.is-hidden{
+    display: none;
+}
+
+@media (min-width: 768px) and (max-width: 1280px) {
+    .data-section{
+        padding: 0 30px;
+    }
+}
+
+@media (min-width: 361px) and (max-width: 767px) {
+    .data-section{
+        padding: 0 30px;
+    }
+    .select-nav{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+@media (max-width:767px){
+    /* 平板以下資料表改為卡片式 */
+    /* Weekly Table */
+    /* 隱藏表頭 */
+    .weekly-data-table__header--wrap{
+        display: none;
+    }
+
+    /* 移除表格預設樣式 */
+    .weekly-data-table {
+        display: block;
+        border: none;
+        box-shadow: none;
+    }
+    
+    .weekly-data-table tbody {
+        display: block;
+    }
+    
+    /* 每個日期區塊改為卡片 */
+    .date-group .weekly-data-table {
+        background: var(--color-white-100);
+        border: 1px solid var(--color-zinc-200);
+        box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+        border-radius: 8px;
+        padding: 16px;
+        margin-bottom: 16px;
+    }
+    
+    /* 每一行改為卡片內容 */
+    .date-row {
+        display: block;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--color-zinc-200);
+    }
+    
+    .date-row:last-child {
+        border-bottom: none;
+    }
+    
+    .date-row:first-child td {
+        border-bottom: none;
+    }
+    
+    /* 重置所有 td 的寬度設定 */
+    .weekly-data-table td {
+        width: 100% !important;
+        text-align: left !important;
+    }
+    
+    /* 日期欄位 - 置頂顯示 */
+    .date-cell {
+        display: block !important;
+        text-align: center !important;
+        padding: 0 0 16px 0 !important;
+        border-bottom: 2px solid var(--color-zinc-200) !important;
+        margin-bottom: 12px;
+    }
+    
+    .date-info {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .date {
+        font-size: 20px;
+        font-weight: var(--font-weight-500);
+    }
+    
+    .weekday {
+        font-size: 20px;
+    }
+    
+    /* 其他欄位改為 block 排列 */
+    .date-row td:not(.date-cell) {
+        display: flex !important;
+        justify-content: space-between;
+        align-items: center;
+        width: 100% !important;
+        padding: 8px 0 !important;
+    }
+    
+    /* 時間 icon */
+    .time-cell {
+        margin-bottom: 8px;
+    }
+    
+    .time-cell::before {
+        content: "時段：";
+        font-weight: var(--font-weight-500);
+        color: var(--color-zinc-600);
+    }
+    
+    .time-cell .material-symbols-outlined {
+        font-size: 20px;
+    }
+    
+    /* 第一行（有日期欄位）：日期之後的 td */
+    /* 時間 (第2個td) */
+    .date-row:first-child td:nth-child(2)::before {
+        content: "時段：";
+    }
+    
+    /* 天氣 (第3個td) */
+    .date-row:first-child td:nth-child(3)::before {
+        content: "天氣：";
+        font-weight: var(--font-weight-500);
+        color: var(--color-zinc-600);
+    }
+    
+    /* 降雨機率 (第4個td) */
+    .date-row:first-child td:nth-child(4)::before {
+        content: "降雨機率：";
+        font-weight: var(--font-weight-500);
+        color: var(--color-zinc-600);
+    }
+    
+    /* 溫度 (第5個td) */
+    .date-row:first-child td:nth-child(5)::before {
+        content: "溫度：";
+        font-weight: var(--font-weight-500);
+        color: var(--color-zinc-600);
+    }
+    
+    /* 濕度 (第6個td) */
+    .date-row:first-child td:nth-child(6)::before {
+        content: "濕度：";
+        font-weight: var(--font-weight-500);
+        color: var(--color-zinc-600);
+    }
+    
+    /* 第二行之後（沒有日期欄位）：td順序往前移 */
+    /* 時間 (第1個td) */
+    .date-row:not(:first-child) td:nth-child(1)::before {
+        content: "時段：";
+    }
+    
+    /* 天氣 (第2個td) */
+    .date-row:not(:first-child) td:nth-child(2)::before {
+        content: "天氣：";
+        font-weight: var(--font-weight-500);
+        color: var(--color-zinc-600);
+    }
+    
+    /* 降雨機率 (第3個td) */
+    .date-row:not(:first-child) td:nth-child(3)::before {
+        content: "降雨機率：";
+        font-weight: var(--font-weight-500);
+        color: var(--color-zinc-600);
+    }
+    
+    /* 溫度 (第4個td) */
+    .date-row:not(:first-child) td:nth-child(4)::before {
+        content: "溫度：";
+        font-weight: var(--font-weight-500);
+        color: var(--color-zinc-600);
+    }
+    
+    /* 濕度 (第5個td) */
+    .date-row:not(:first-child) td:nth-child(5)::before {
+        content: "濕度：";
+        font-weight: var(--font-weight-500);
+        color: var(--color-zinc-600);
+    }
+    
+    /* 調整 chart 高度 */
+    .chart-wrap {
+        height: 300px;
+    }
+
+    /* 平板以下資料表改為卡片式 */
+    /* Rainfall Table */
+    .rainfall-data-table__header--wrap{
+        display: none;
+    }
+
+    /* 移除雨量表格預設樣式 */
+    .rainfall-data-table {
+        display: block;
+        border: none;
+        box-shadow: none;
+    }
+    
+    .rainfall-data-table tbody {
+        display: block;
+    }
+    
+    /* 每個測站改為卡片 */
+    .area-group .rainfall-data-table {
+        background: var(--color-white-100);
+        border: 1px solid var(--color-zinc-200);
+        box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+        border-radius: 8px;
+        padding: 16px;
+        margin-bottom: 16px;
+    }
+    
+    /* 資料行改為卡片內容 */
+    .data-row {
+        display: block;
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
+    }
+    
+    /* 重置所有 td 的寬度設定 */
+    .rainfall-data-table td {
+        display: flex !important;
+        justify-content: space-between;
+        align-items: center;
+        width: 100% !important;
+        padding: 8px 0 !important;
+        text-align: left !important;
+    }
+    
+    /* 測站名稱 - 置頂顯示 */
+    .data-row td:nth-child(1) {
+        display: block !important;
+        text-align: center !important;
+        font-size: 18px;
+        font-weight: var(--font-weight-500);
+        padding: 0 0 16px 0 !important;
+        border-bottom: 2px solid var(--color-zinc-200);
+        margin-bottom: 12px;
+        color: var(--color-zinc-600);
+    }
+    
+    .data-row td:nth-child(1)::before {
+        content: none;
+    }
+    
+    /* 即時雨量 (第2個td) */
+    .data-row td:nth-child(2)::before {
+        content: "即時雨量：";
+        font-weight: var(--font-weight-500);
+        color: var(--color-zinc-600);
+    }
+    
+    /* 10分鐘雨量 (第3個td) */
+    .data-row td:nth-child(3)::before {
+        content: "10分鐘雨量：";
+        font-weight: var(--font-weight-500);
+        color: var(--color-zinc-600);
+    }
+    
+    /* 1小時雨量 (第4個td) */
+    .data-row td:nth-child(4)::before {
+        content: "1小時雨量：";
+        font-weight: var(--font-weight-500);
+        color: var(--color-zinc-600);
+    }
+    
+    /* 3小時雨量 (第5個td) */
+    .data-row td:nth-child(5)::before {
+        content: "3小時雨量：";
+        font-weight: var(--font-weight-500);
+        color: var(--color-zinc-600);
+    }
+    
+    /* 6小時雨量 (第6個td) */
+    .data-row td:nth-child(6)::before {
+        content: "6小時雨量：";
+        font-weight: var(--font-weight-500);
+        color: var(--color-zinc-600);
+    }
+    
+    /* 12小時雨量 (第7個td) */
+    .data-row td:nth-child(7)::before {
+        content: "12小時雨量：";
+        font-weight: var(--font-weight-500);
+        color: var(--color-zinc-600);
+    }
+    
+    /* 24小時雨量 (第8個td) */
+    .data-row td:nth-child(8)::before {
+        content: "24小時雨量：";
+        font-weight: var(--font-weight-500);
+        color: var(--color-zinc-600);
+    }
+}
+
+@media (max-width:360px){
+    .select-nav{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .dropdowns-wrap{
+        flex-direction: column;
+    }
+
+    .dropdown__trigger{
+        width: 100%;
+    }
+
+    .buttons-wrap{
+        flex-direction: column;
+    }
+
+    #weekly-btn, #rainfall-btn, #discord-btn{
+        height: 30px;
+    }
+}

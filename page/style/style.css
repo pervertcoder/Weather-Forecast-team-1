@@ -1,0 +1,355 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("global.css");
+@import url("headerAndFooter.css");
+@import url("component.css");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* root */
+body {
+  padding: 0;
+  margin: 0;
+  background-color: var(--color-white-100);
+  font-family: "Noto Sans TC";
+}
+
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  margin-bottom: 80px;
+}
+
+.topbar {
+  width: 1200px;
+  height: 60px;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.data-section {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin: 0 auto;
+}
+/* map section */
+.map-section {
+  max-width: 1920px;
+  /* width: 100%; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mapInformation {
+  max-width: 1200px;
+  height: 850px;
+  display: flex;
+  position: relative;
+}
+.map__left {
+  width: 50%;
+  height: 850px;
+  overflow: hidden;
+  /* border: 1px solid black; */
+}
+.map__small--up {
+  width: 150px;
+  height: 100px;
+  overflow: hidden;
+  position: absolute;
+  bottom: 70%;
+  left: 15%;
+  border: 1px solid black;
+  z-index: 10;
+}
+.map__small--down {
+  width: 100px;
+  height: 80px;
+  overflow: hidden;
+  position: absolute;
+  bottom: 60%;
+  left: 15%;
+  border: 1px solid black;
+  z-index: 10;
+}
+.countyInformation__right {
+  width: 50%;
+  height: 850px;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+}
+#icon {
+  width: 150px;
+  height: auto;
+  padding: 5px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  font-size: 60px;
+  color: gray;
+}
+.county {
+  fill: white;
+  stroke: black;
+  stroke-width: 1px;
+}
+.county:hover {
+  fill: var(--color-primary-600);
+  cursor: pointer;
+}
+.country {
+  fill: white;
+  stroke: black;
+  stroke-width: 2px;
+}
+.country:hover {
+  fill: var(--color-primary-600);
+  cursor: pointer;
+}
+.country2 {
+  fill: white;
+  stroke: black;
+  stroke-width: 2px;
+}
+.country2:hover {
+  fill: var(--color-primary-600);
+  cursor: pointer;
+}
+.countyInformation__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 300px;
+}
+.reminder {
+  color: grey;
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+.temparature,
+.status {
+  color: #666666;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.countyInformation__content h1 {
+  color: var(--color-primary-800);
+  font-size: 35px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.informationBar {
+  width: 50%;
+  height: 240px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  box-shadow: 1px 1px 2px 2px gainsboro;
+  border-radius: 5px;
+}
+.informationBar p {
+  padding: 5px;
+}
+#weatherBtn {
+  width: 50%;
+  background-color: #98c1d9;
+  border: 1px solid white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#weatherBtn:hover {
+  background-color: var(--color-primary-600);
+}
+/* =========== */
+@media screen and (min-width: 992px) {
+}
+@media (max-width: 1250px) {
+  .leftTitle {
+    margin-left: 50px;
+  }
+}
+@media (max-width: 950px) {
+  .mapInformation {
+    max-width: 950px;
+    /* width: 100%; */
+    height: auto;
+    display: block;
+    position: relative;
+  }
+  .map__left {
+    width: 100%;
+    height: 650px;
+    overflow: hidden;
+    margin: auto;
+    /* border: 1px solid black; */
+  }
+  .countyInformation__right {
+    width: 100%;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .map__small--up {
+    bottom: 80%;
+    left: 30%;
+  }
+  .map__small--down {
+    bottom: 70%;
+    left: 30%;
+  }
+  .countyInformation__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10px;
+    width: 100%;
+    position: relative;
+  }
+  .informationBar {
+    width: 30%;
+  }
+  .informationWord {
+    width: 40%;
+  }
+  #weatherBtn {
+    width: 29%;
+    position: absolute;
+    bottom: -20%;
+  }
+  .svg__big g {
+    transform-box: fill-box;
+    transform-origin: center;
+    transform: translate(-350px, 100px);
+  }
+}
+@media (max-width: 730px) {
+  .countyInformation__content {
+    width: 80%;
+  }
+}
+@media (max-width: 550px) {
+  .countyInformation__content {
+    width: 65%;
+  }
+  .map__small--up {
+    bottom: 80%;
+    left: 35%;
+  }
+  .map__small--down {
+    bottom: 70%;
+    left: 35%;
+  }
+}
+@media (max-width: 430px) {
+  main {
+    padding: 0 30px;
+  }
+  .mapInformation {
+    width: 100%;
+  }
+  .map__small--up {
+    bottom: 80%;
+    left: -5%;
+  }
+  .map__small--down {
+    bottom: 65%;
+    left: -5%;
+  }
+  .svg__big g {
+    transform-box: fill-box;
+    transform-origin: center;
+    transform: translate(-700px, 0px);
+  }
+  .topbar {
+    justify-content: center;
+  }
+  .leftTitle {
+    margin-left: 0;
+  }
+  .countyInformation__right {
+    width: 100%;
+    /* padding: 1px; */
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .informationWord {
+    display: none;
+  }
+  .informationBar {
+    display: none;
+  }
+  #weatherBtn {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+}
+@media (max-width: 360px) {
+  main {
+    padding: 0 30px;
+  }
+  .mapInformation {
+    width: 100%;
+  }
+  .map__small--up {
+    bottom: 80%;
+    left: -5%;
+  }
+  .map__small--down {
+    bottom: 65%;
+    left: -5%;
+  }
+  .svg__big g {
+    transform-box: fill-box;
+    transform-origin: center;
+    transform: translate(-750px, 0px);
+  }
+  .topbar {
+    justify-content: center;
+  }
+  .leftTitle {
+    margin-left: 0;
+  }
+  .countyInformation__right {
+    width: 100%;
+    /* padding: 1px; */
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .informationWord {
+    display: none;
+  }
+  .informationBar {
+    display: none;
+  }
+  #weatherBtn {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+}

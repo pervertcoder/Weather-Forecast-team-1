@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/page/style/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/page/image/favicon.ico"
+    />
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <title>全國即時氣象</title>
+  </head>
+  <body>
+    <header class="topbar__whole">
+      <div class="topbar">
+        <h1 class="leftTitle">全國即時氣象</h1>
+      </div>
+    </header>
+    <main>
+      <!-- 之後引入 Taiwan Map -->
+      <section class="map-section">
+        <div class="mapInformation">
+          <div class="map__left">
+            <svg width="1500" height="1800" class="svg__big"></svg>
+          </div>
+          <div class="map__small--up">
+            <svg width="1200" height="1500" class="svg__small--z"></svg>
+          </div>
+          <div class="map__small--down">
+            <svg width="1200" height="1500" class="svg__small--c"></svg>
+          </div>
+          <div class="countyInformation__right">
+            <div class="countyInformation__content">
+              <div class="informationWord">
+                <h1 class="cityTitle">全國　天氣概況</h1>
+                <p class="reminder">點擊至各縣市地圖查看天氣概況</p>
+              </div>
+              <div class="informationBar">
+                <span class="material-symbols-outlined" id="icon"></span>
+                <p class="temparature"></p>
+                <p class="status"></p>
+              </div>
+              <button type="button" id="weatherBtn">查看鄉鎮天氣</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- 鄉鎮一週預報 -->
+      <section class="data-section">
+        <div class="select-nav">
+          <div class="dropdowns-wrap">
+            <div class="dropdowns-wrap__item">
+              <button
+                type="button"
+                class="btn dropdown__trigger"
+                id="county-btn"
+              >
+                <span class="dropdown__text" id="county-name">選擇縣市</span>
+                <span class="material-symbols-outlined dropdown__icon">
+                  keyboard_arrow_down
+                </span>
+              </button>
+              <ul class="dropdown__options" id="county-options">
+                <!-- JS 動態載入 options-->
+              </ul>
+            </div>
+            <div class="dropdowns-wrap__item">
+              <button type="button" class="btn dropdown__trigger" id="area-btn">
+                <span class="dropdown__text" id="town-name">選擇鄉鎮市區</span>
+                <span class="material-symbols-outlined dropdown__icon">
+                  keyboard_arrow_down
+                </span>
+              </button>
+              <ul class="dropdown__options" id="area-options">
+                <!-- JS 動態載入 options-->
+              </ul>
+            </div>
+          </div>
+          <div class="buttons-wrap">
+            <button type="button" class="btn btn--primary" id="weekly-btn">
+              一週天氣
+            </button>
+            <button type="button" class="btn btn--primary" id="rainfall-btn">
+              雨量觀測
+            </button>
+            <button type="button" class="btn btn--primary" id="discord-btn">
+              <div class="dc-icon">
+                發送至
+                <img
+                  src="/page/image/discord-logo-icon.jpg"
+                  alt="discord-icon"
+                />
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="empty-content"><p>請選擇區域以查詢詳細天氣資訊</p></div>
+        <div class="weather-wrap" hidden>
+          <div class="chart-wrap">
+            <h3>溫度曲線</h3>
+            <div class="chart-wrap">
+              <canvas id="myChart"></canvas>
+            </div>
+          </div>
+          <div class="weekly-data-wrap">
+            <h3>詳細天氣資訊</h3>
+            <div class="weekly-data-table__header--wrap">
+              <table class="weekly-data-table">
+                <thead class="weekly-data-table__header">
+                  <tr>
+                    <th>日期</th>
+                    <th>時間</th>
+                    <th>天氣</th>
+                    <th>降雨</th>
+                    <th>溫度</th>
+                    <th>濕度</th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+            <!-- 日期區塊 -->
+            <div class="date-group">
+              <!-- JS 動態產生 -->
+            </div>
+          </div>
+        </div>
+        <div class="rainfall-data-wrap" hidden>
+          <div class="rainfall-data-table__header--wrap">
+            <table class="rainfall-data-table">
+              <thead class="rainfall-data-table__header">
+                <tr>
+                  <th>測站站別</th>
+                  <th>即時</th>
+                  <th>10分鐘</th>
+                  <th>1小時</th>
+                  <th>3小時</th>
+                  <th>6小時</th>
+                  <th>12小時</th>
+                  <th>24小時</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+          <!-- 資料區塊 -->
+          <div class="area-group">
+            <!-- JS 動態產生 -->
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer"><p>COPYRIGHT © 2026 全國即時氣象</p></footer>
+
+    <script type="module" src="/page/script/index.js"></script>
+    <script src="/page/script/webhook.js"></script>
+  </body>
+</html>
