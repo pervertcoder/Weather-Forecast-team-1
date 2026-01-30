@@ -326,7 +326,7 @@ main {
   .svg__big g {
     transform-box: fill-box;
     transform-origin: center;
-    transform: translate(-750px, 0px);
+    transform: translate(-747px, 0px);
   }
   .topbar {
     justify-content: center;
