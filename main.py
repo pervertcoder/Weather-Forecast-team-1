@@ -14,4 +14,5 @@ async def index(request: Request):
 
 app.include_router(weather_router)
 
+print("weather")
 a = "conflict test";
